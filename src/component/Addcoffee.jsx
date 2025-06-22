@@ -6,7 +6,7 @@ const Addcoffee = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = async (data) => {
-        console.log(data)
+      
         try {
             const response = await fetch('https://your-backend-url.com/coffees', {
                 method: 'POST',
