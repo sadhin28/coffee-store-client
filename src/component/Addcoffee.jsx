@@ -2,29 +2,31 @@
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 const Addcoffee = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = async (data) => {
-      
-        try {
-            const response = await fetch('https://your-backend-url.com/coffees', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-
-            if (response.ok) {
-                toast.success('Coffee added successfully!');
-                reset(); // Clear the form
-            } else {
-                toast.error('Failed to add coffee');
-            }
-        } catch (error) {
-            toast.error('Error submitting form');
+       
+       fetch('http://localhost:5000/coffee',{
+        method:"POST",
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(data)
+       })
+       .then(res=>res.json())
+       .then(data=>{
+        console.log(data)
+        if(data.inssertedId){
+           Swal.fire({
+             title:'Success',
+             text:"Add Coffee Item Successfully",
+             icon:'success',
+             confirmButtonText:'Cool'
+           })
         }
+       })
     };
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f4f3f0] px-4 py-8">
