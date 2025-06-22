@@ -18,14 +18,22 @@ const Addcoffee = () => {
        .then(res=>res.json())
        .then(data=>{
         console.log(data)
-        if(data.inssertedId){
+        
            Swal.fire({
              title:'Success',
              text:"Add Coffee Item Successfully",
              icon:'success',
              confirmButtonText:'Cool'
            })
-        }
+        
+       })
+       .catch(errors=>{
+          Swal.fire({
+             title:'Error',
+             text:`${errors.message}`,
+             icon:'error',
+             confirmButtonText:'Cool'
+           })
        })
     };
     return (
