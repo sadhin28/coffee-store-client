@@ -16,11 +16,16 @@ const Updatecoffee = () => {
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                Swal.fire("Saved!", "",
-                     "success");
-                console.log('Update coffee')
-            
-                console.log(data)
+                Swal.fire("Saved!", "","success");
+
+                fetch(`http://localhost:5000/coffee/${coffee._id}`,{
+                    method:'PUT',
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body:JSON.stringify(data)
+                })
+                
             } else if (result.isDenied) {
                 Swal.fire("Changes are not saved", "", "info");
             }
