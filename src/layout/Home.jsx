@@ -72,7 +72,7 @@ const Home = () => {
                             </h2>
                             <p>{coffee.details}</p>
                             <div className="card-actions justify-end">
-                                <Link to='update-coffee'><div className="badge btn hover:bg-blue-600 hover:text-white badge-outline">Update</div></Link>
+                                <Link to={`/update-coffee/${coffee._id}`}><div className="badge btn hover:bg-blue-600 hover:text-white badge-outline">Update</div></Link>
                                 <div onClick={() => handelDelete(coffee._id)} className="badge text-2xl hover:text-red-600 btn badge-outline"><MdDeleteForever /></div>
                             </div>
                         </div>

@@ -1,8 +1,10 @@
 import { useForm } from 'react-hook-form';
+import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 const Updatecoffee = () => {
+    const coffee = useLoaderData()
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
      const onSubmit = async (data) =>{
         
@@ -20,12 +22,12 @@ const Updatecoffee = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {[
-                            { name: 'name', label: 'Name', placeholder: 'Enter coffee name' },
-                            { name: 'chef', label: 'Chef', placeholder: 'Enter coffee chef' },
-                            { name: 'supplier', label: 'Supplier', placeholder: 'Enter coffee supplier' },
-                            { name: 'taste', label: 'Taste', placeholder: 'Enter coffee taste' },
-                            { name: 'category', label: 'Category', placeholder: 'Enter coffee category' },
-                            { name: 'details', label: 'Details', placeholder: 'Enter coffee details' },
+                            { name: 'name', label: 'Name', placeholder: `${coffee.name}` },
+                            { name: 'chef', label: 'Chef', placeholder: `${coffee.chef}` },
+                            { name: 'supplier', label: 'Supplier', placeholder: `${coffee.supplier}` },
+                            { name: 'taste', label: 'Taste', placeholder: `${coffee.taste}` },
+                            { name: 'category', label: 'Category', placeholder: `${coffee.category}` },
+                            { name: 'details', label: 'Details', placeholder: `${coffee.details}` },
                         ].map(({ name, label, placeholder }) => (
                             <div key={name}>
                                 <label className="block mb-1 font-medium">{label}</label>
