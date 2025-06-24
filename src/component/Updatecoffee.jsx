@@ -1,9 +1,10 @@
 import { useForm } from 'react-hook-form';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { ToastContainer, } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 const Updatecoffee = () => {
+    const navigate = useNavigate()
     const coffee = useLoaderData()
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = async (data) => {
@@ -25,7 +26,7 @@ const Updatecoffee = () => {
                     },
                     body:JSON.stringify(data)
                 })
-                console.log(data)
+                navigate('/')
             } else if (result.isDenied) {
                 Swal.fire("Changes are not saved", "", "info");
             }

@@ -1,9 +1,11 @@
 
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 const Addcoffee = () => {
+    const navigate=useNavigate()
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = async (data) => {
@@ -25,6 +27,8 @@ const Addcoffee = () => {
              icon:'success',
              confirmButtonText:'Cool'
            })
+           navigate('/')
+           
         
        })
        .catch(errors=>{
@@ -35,6 +39,7 @@ const Addcoffee = () => {
              confirmButtonText:'Cool'
            })
        })
+      
     };
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f4f3f0] px-4 py-8">
