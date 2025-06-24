@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 
 const Home = () => {
@@ -24,7 +24,7 @@ const Home = () => {
                             </h2>
                             <p>{coffee.details}</p>
                             <div className="card-actions justify-end">
-                                <div className="badge btn hover:bg-blue-600 hover:text-white badge-outline">Update</div>
+                                <Link to='update-coffee'><div className="badge btn hover:bg-blue-600 hover:text-white badge-outline">Update</div></Link>
                                 <div className="badge text-2xl hover:text-red-600 btn badge-outline"><MdDeleteForever /></div>
                             </div>
                         </div>
