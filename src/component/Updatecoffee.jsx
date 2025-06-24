@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const Updatecoffee = () => {
     const navigate = useNavigate()
     const coffee = useLoaderData()
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { register, handleSubmit, formState: { errors }, } = useForm();
     const onSubmit = async (data) => {
         Swal.fire({
             title: "Do you want to save the changes?",

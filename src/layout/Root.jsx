@@ -3,11 +3,13 @@ import Navbar from "../component/Navbar";
 
 const Root = () => {
     return (
-        <div>
+        <div className="bg-[#f4f3f0]">
           
             <Navbar></Navbar>
           
-          <Outlet></Outlet>
+            <div className="min-h-[68vh]">
+               <Outlet></Outlet>
+            </div>
         </div>
     );
 };

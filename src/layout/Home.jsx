@@ -60,12 +60,9 @@ const Home = () => {
         });
     }
 
-    /**=================handelViewCoffee=================== */
-    const handelViewCoffee=_id=>{
-
-    }
+   
     return (
-        <div className="mx-auto w-11/12 grid justify-center md:grid-cols-2 lg:grid-cols-3 md:justify-items-center gap-10 mt-10 ">
+        <div className="mx-auto min-h-[100vh]  w-11/12 grid justify-center md:grid-cols-2 lg:grid-cols-3 md:justify-items-center gap-10 mt-10 ">
             {
                 coffee.map(coffee => <div>
 
@@ -82,7 +79,7 @@ const Home = () => {
                             </h2>
                             <p>{coffee.details}</p>
                             <div className="card-actions justify-end">
-                                <Link to={`/view-coffee/${coffee._id}`}> <div onClick={() => handelViewCoffee(coffee._id)} className="badge btn hover:bg-gray-600 hover:text-white badge-outline">View</div></Link>
+                                <Link to={`/view-coffee/${coffee._id}`}> <div  className="badge btn hover:bg-gray-600 hover:text-white badge-outline">View</div></Link>
                                 <Link to={`/update-coffee/${coffee._id}`}><div className="badge btn hover:bg-blue-600 hover:text-white badge-outline">Update</div></Link>
                                 <div onClick={() => handelDelete(coffee._id)} className="badge text-2xl hover:text-red-600 btn badge-outline"><MdDeleteForever /></div>
                             </div>
