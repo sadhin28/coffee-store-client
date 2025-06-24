@@ -9,7 +9,6 @@ const Home = () => {
     /**======Delate Coffe======= **/
     console.log(allcoffee)
     const handelDelete = _id => {
-        console.log(_id)
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: "btn btn-success",
@@ -27,19 +26,29 @@ const Home = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                // swalWithBootstrapButtons.fire({
-                //     title: "Deleted!",
-                //     text: "Your file has been deleted.",
-                //     icon: "success"
-                // });
-                console.log('Delate Conform')
+
+                fetch(`http://localhost:5000/coffee/${_id}`,{
+                    method:'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+
+                            swalWithBootstrapButtons.fire({
+                                title: "Deleted!",
+                                text: "Your Coffee has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
             } else if (
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
             ) {
                 swalWithBootstrapButtons.fire({
                     title: "Cancelled",
-                    text: "Your imaginary file is safe :)",
+                    text: "Your imaginary Coffee is safe :)",
                     icon: "error"
                 });
             }
