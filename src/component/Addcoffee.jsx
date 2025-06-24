@@ -44,9 +44,7 @@ const Addcoffee = () => {
                 </a>
 
                 <h2 className="text-3xl font-bold text-center text-[#374151] mb-2">Add New Coffee</h2>
-                <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto text-sm">
-                    It is a long established fact that a reader will be distracted by the readable content of a page...
-                </p>
+                
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

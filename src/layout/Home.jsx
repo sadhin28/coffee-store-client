@@ -55,7 +55,7 @@ const Home = () => {
         });
     }
     return (
-        <div className="mx-auto">
+        <div className="mx-auto w-11/12 grid justify-center md:grid-cols-2 lg:grid-cols-3 md:justify-items-center gap-10 mt-10 ">
             {
                 allcoffee.map(coffee => <div>
 
